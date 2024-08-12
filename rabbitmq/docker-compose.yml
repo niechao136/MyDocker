@@ -1,0 +1,25 @@
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    restart: always
+    #    network_mode: host
+    ports:
+      - 4369:4369
+      - 5671:5671
+      - 5672:5672
+      - 15671:15671
+      - 15672:15672
+      - 25672:25672
+    volumes:
+      - ./data/lib:/var/lib/rabbitmq
+      - ./data/etc:/etc/rabbitmq
+      - ./data/log:/var/log/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_VHOST=rabbitmq-1
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=158818
+#    command: rabbitmq-plugins enable rabbitmq_management
+
+
