@@ -14,9 +14,9 @@ services:
       - 15672:15672
       - 25672:25672
     volumes:
-      - ./data/lib:/var/lib/rabbitmq
-      - ./data/etc:/etc/rabbitmq
-      - ./data/log:/var/log/rabbitmq
+      - ./lib:/var/lib/rabbitmq
+      - ./etc:/etc/rabbitmq
+      - ./log:/var/log/rabbitmq
     environment:
       - RABBITMQ_DEFAULT_VHOST=rabbitmq-1
       - RABBITMQ_DEFAULT_USER=admin
