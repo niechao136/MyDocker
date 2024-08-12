@@ -16,7 +16,7 @@ services:
     volumes:
       - ./lib:/var/lib/rabbitmq
       - ./etc:/etc/rabbitmq
-      - ./log:/var/log/rabbitmq
+      - ./logs:/var/log/rabbitmq
     environment:
       - RABBITMQ_DEFAULT_VHOST=rabbitmq-1
       - RABBITMQ_DEFAULT_USER=admin
