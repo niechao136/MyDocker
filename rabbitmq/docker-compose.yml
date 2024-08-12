@@ -3,6 +3,7 @@ services:
     image: rabbitmq:management
     container_name: rabbitmq
     hostname: rabbitmq
+    user: root
     restart: always
     #    network_mode: host
     ports:
