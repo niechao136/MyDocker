@@ -11,4 +11,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
+      - /usr/libexec/docker:/usr/libexec/docker
+      - /usr/lib/docker:/usr/lib/docker
 
