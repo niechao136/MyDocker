@@ -21,6 +21,6 @@ services:
       - RABBITMQ_DEFAULT_VHOST=rabbitmq-1
       - RABBITMQ_DEFAULT_USER=admin
       - RABBITMQ_DEFAULT_PASS=158818
-    command: rabbitmq-plugins enable rabbitmq_management
+#    command: rabbitmq-plugins enable rabbitmq_management
 
 
