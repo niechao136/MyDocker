@@ -22,6 +22,6 @@ services:
       - RABBITMQ_DEFAULT_USER=admin
       - RABBITMQ_DEFAULT_PASS=158818
     command:
-      - rabbitmq-plugins enable rabbitmq_management
+      - cd /bin/bash && rabbitmq-plugins enable rabbitmq_management
 
 
