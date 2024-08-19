@@ -4,6 +4,7 @@ CREATE SEQUENCE "public"."user_id_seq" INCREMENT 1 MINVALUE 1 MAXVALUE 999999999
 CREATE SEQUENCE "public"."question_id_seq" INCREMENT 1 MINVALUE 1 MAXVALUE 999999999 START 1 CACHE 1;
 CREATE SEQUENCE "public"."answer_id_seq" INCREMENT 1 MINVALUE 1 MAXVALUE 999999999 START 1 CACHE 1;
 CREATE SEQUENCE "public"."commit_id_seq" INCREMENT 1 MINVALUE 1 MAXVALUE 999999999 START 1 CACHE 1;
+CREATE SEQUENCE "public"."notify_id_seq" INCREMENT 1 MINVALUE 1 MAXVALUE 999999999 START 1 CACHE 1;
 create table users
 (
     id                integer   default nextval('user_id_seq'::regclass) not null
@@ -20,6 +21,7 @@ create table users
     remarks           integer[],
     watching_people   integer[],
     watching_question integer[],
+    subscribers       integer[],
     create_at         timestamp default now(),
     update_at         timestamp default now(),
     is_delete         boolean   default false
@@ -61,11 +63,24 @@ create table commits
     owner_id  integer                                              not null,
     answer_id integer                                              not null,
     parent_id integer                                              not null,
+    root_id   integer                                              not null,
     content   varchar(1000)                                        not null,
     children  integer[],
     agree     integer[],
     create_at timestamp default now(),
     update_at timestamp default now(),
-    is_delete boolean   default false,
-    root_id   integer                                              not null
+    is_delete boolean   default false
+);
+create table notifies
+(
+    id        integer   default nextval('notify_id_seq'::regclass) not null
+        constraint notifies_pri
+            primary key,
+    owner_id  integer                                              not null,
+    operate_id integer                                             not null,
+    target_id integer                                              not null,
+    type   integer                                                 not null,
+    create_at timestamp default now(),
+    update_at timestamp default now(),
+    is_delete boolean   default false
 );
