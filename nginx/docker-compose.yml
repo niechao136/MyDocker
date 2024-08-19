@@ -1,0 +1,12 @@
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    user: root
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    build:
+      context: .
+      dockerfile: ./Dockerfile
