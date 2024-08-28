@@ -12,7 +12,7 @@ services:
     command: server --console-address ":9001" /data
     environment:
       - MINIO_ROOT_USER=admin
-      - MINIO_ROOT_PASSWORD=158818
+      - MINIO_ROOT_PASSWORD=nc158818
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 30s
