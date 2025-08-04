@@ -29,7 +29,6 @@ allure-jenkins-plugin
 slack
 build-token-root
 generic-webhook-trigger
-webhook-notifier
 
 # --- 构建管理 ---
 build-timeout
