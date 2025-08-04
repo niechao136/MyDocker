@@ -1,6 +1,7 @@
 services:
   jenkins:
-    image: jenkins/jenkins:lts
+    build:
+      context: .
     container_name: jenkins
     privileged: true
     user: root
@@ -9,9 +10,13 @@ services:
       - 8066:8080
       - 50000:50000
     volumes:
+      # Jenkins 数据持久化
+      - /opt/jenkins_data:/var/jenkins_home
+      # Docker 支持（容器中控制宿主机容器）
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
       - /usr/libexec/docker:/usr/libexec/docker
       - /usr/lib/docker:/usr/lib/docker
-      - /root/.ssh:/root/.ssh # 映射本地密钥到容器中
+      # SSH 密钥
+      - /root/.ssh:/root/.ssh
 

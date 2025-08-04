@@ -1,0 +1,48 @@
+# --- 核心插件 ---
+git
+pipeline-model-definition
+blueocean
+credentials-binding
+command-launcher
+ssh-agent
+matrix-auth
+role-strategy
+email-ext
+timestamper
+
+# --- 构建工具和语言支持 ---
+maven-plugin
+gradle
+nodejs
+docker-workflow
+github
+github-branch-source
+pipeline-utility-steps
+
+# --- 测试与报告 ---
+junit
+cobertura
+htmlpublisher
+allure-jenkins-plugin
+
+# --- 通知与集成 ---
+slack
+build-token-root
+generic-webhook-trigger
+webhook-notifier
+
+# --- 构建管理 ---
+build-timeout
+throttle-concurrents
+rebuild
+discard-old-build
+
+# --- 安全与审计 ---
+antisamy-markup-formatter
+ansicolor
+jobConfigHistory
+
+# --- 可视化增强 ---
+view-job-filters
+nested-view
+build-monitor-plugin
