@@ -14,6 +14,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
+    user: root
     environment:
       PGADMIN_DEFAULT_EMAIL: niechao158@gmail.com   # 登录 pgAdmin 的账号
       PGADMIN_DEFAULT_PASSWORD: 158818           # 登录密码
