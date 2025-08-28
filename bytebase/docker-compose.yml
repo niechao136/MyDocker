@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  bytebase:
+    image: bytebase/bytebase:latest
+    container_name: bytebase
+    init: true                 # 等价于 --init，确保正确的子进程处理
+    ports:
+      - "10083:8080"            # 等价于 --publish 8080:8080
+    volumes:
+      - ~/.bytebase/data:/var/opt/bytebase  # 等价于 --volume
+    restart: unless-stopped    # 可选：容器异常退出时自动重启
