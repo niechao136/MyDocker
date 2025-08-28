@@ -7,8 +7,19 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./data/dev:/var/lib/postgresql/data
+      - ./pgdata:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: 158818
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: niechao158@gmail.com   # 登录 pgAdmin 的账号
+      PGADMIN_DEFAULT_PASSWORD: 158818           # 登录密码
+    ports:
+      - "10084:80"   # 宿主机 10084 端口映射到容器内 80 端口
+    volumes:
+      - ./pgadmin-data:/var/lib/pgadmin
+    restart: unless-stopped
 
