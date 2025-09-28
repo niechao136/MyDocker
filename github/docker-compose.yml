@@ -6,7 +6,8 @@ services:
     environment:
       RUNNER_NAME: my-server-runner
       RUNNER_WORKDIR: /tmp/runner
-      RUNNER_TOKEN: ${RUNNER_TOKEN}
+      RUNNER_TOKEN: AHV7KLW6MFFK5FHYS6H3AXTI3CTP4
+      RUNNER_ORG_URL: https://github.com/nechao136
     volumes:
       - runner-workdir:/tmp/runner
       - /var/run/docker.sock:/var/run/docker.sock
