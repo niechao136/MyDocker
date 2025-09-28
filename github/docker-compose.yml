@@ -2,6 +2,7 @@ services:
   github-runner:
     image: ghcr.io/actions/actions-runner:latest
     container_name: github-runner
+    user: runner
     restart: unless-stopped
     environment:
       RUNNER_NAME: my-server-runner
