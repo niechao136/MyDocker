@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   github-runner:
-    image: ghcr.io/actions/runner:latest
+    image: ghcr.io/actions/actions-runner:latest
     container_name: github-runner
     user: root
     restart: unless-stopped
