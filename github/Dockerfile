@@ -3,8 +3,9 @@ FROM ghcr.io/actions/actions-runner:latest
 # 切换到 root
 USER root
 
-# 安装 curl、bash
-RUN apk add --no-cache curl bash
+# 更新包索引并安装 curl、bash
+RUN apt-get update && apt-get install -y curl bash \
+    && rm -rf /var/lib/apt/lists/*
 
 # 确保文件夹存在
 RUN mkdir -p /usr/local/bin/
