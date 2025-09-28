@@ -8,11 +8,11 @@ RUN apt-get update && apt-get install -y curl bash \
     && rm -rf /var/lib/apt/lists/*
 
 # 确保文件夹存在
-RUN mkdir -p /usr/local/bin/
+RUN mkdir -p /usr/local/lib/docker/cli-plugins/
 
 # 安装 docker compose v2
-RUN curl -SL https://github.com/docker/compose/releases/download/v2.39.4/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose \
-    && chmod +x /usr/local/bin/docker-compose
+RUN curl -SL https://github.com/docker/compose/releases/download/v2.39.4/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose \
+    && chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
 # 复制启动脚本
 COPY entrypoint.sh /entrypoint.sh
