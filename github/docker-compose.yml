@@ -2,11 +2,7 @@ version: "3.9"
 
 services:
   github-runner:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        RUNNER_TOKEN: ${RUNNER_TOKEN}
+    image: ghcr.io/actions/actions-runner:latest
     container_name: github-runner
     restart: unless-stopped
     environment:
