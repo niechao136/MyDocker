@@ -10,7 +10,7 @@ services:
     volumes:
       - runner-workdir:/tmp/runner
       - /var/run/docker.sock:/var/run/docker.sock
-    entrypoint: bash -c "./config.sh --url https://github.com/nechao136 --token $RUNNER_TOKEN --unattended && ./run.sh"
+    entrypoint: bash -c "./config.sh --url https://github.com/nechao136 --token AHV7KLW6MFFK5FHYS6H3AXTI3CTP4 --unattended && ./run.sh"
 
 volumes:
   runner-workdir:
