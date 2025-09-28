@@ -8,7 +8,6 @@ services:
       args:
         RUNNER_TOKEN: ${RUNNER_TOKEN}
     container_name: github-runner
-    user: root
     restart: unless-stopped
     environment:
       RUNNER_NAME: my-server-runner
