@@ -1,24 +1,26 @@
-
 services:
   github-runner:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        RUNNER_TOKEN: ${RUNNER_TOKEN}
+    image: ghcr.io/actions/actions-runner:latest
     container_name: github-runner
-    user: runner
     restart: unless-stopped
     environment:
       RUNNER_NAME: my-server-runner
-      RUNNER_ORG_URL: https://github.com/nechao136   # 改成组织 URL
-      RUNNER_TOKEN: ${RUNNER_TOKEN}
       RUNNER_WORKDIR: /tmp/runner
+      RUNNER_TOKEN: ${RUNNER_TOKEN}
     volumes:
-      # 持久化 Runner 工作目录
       - runner-workdir:/tmp/runner
-      # 宿主机 Docker socket，允许 Runner 操作宿主机 Docker
       - /var/run/docker.sock:/var/run/docker.sock
+    entrypoint: ["/bin/bash", "-c"]
+    command:
+      - |
+        ./config.sh \
+          --url https://github.com/nechao136 \
+          --token ${RUNNER_TOKEN} \
+          --name ${RUNNER_NAME} \
+          --work ${RUNNER_WORKDIR} \
+          --unattended \
+          --replace
+        ./run.sh
 
 volumes:
   runner-workdir:
