@@ -12,14 +12,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     entrypoint: ["/bin/bash", "-c"]
     command: >
-      ./config.sh
-      --url https://github.com/nechao136
-      --token ${RUNNER_TOKEN}
-      --name ${RUNNER_NAME}
-      --work ${RUNNER_WORKDIR}
-      --unattended
-      --replace
+      ./config.sh \
+      --url https://github.com/nechao136 \
+      --token ${RUNNER_TOKEN} \
+      --name ${RUNNER_NAME} \
+      --work ${RUNNER_WORKDIR} \
+      --unattended \
+      --replace \
       && ./run.sh
-
-volumes:
-  runner-workdir:
