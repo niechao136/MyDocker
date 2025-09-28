@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  github-runner:
+    image: ghcr.io/actions/runner:latest
+    container_name: github-runner
+    user: root
+    restart: unless-stopped
+    environment:
+      RUNNER_NAME: my-server-runner
+      RUNNER_ORG_URL: https://github.com/nechao136   # 改成组织 URL
+      RUNNER_TOKEN: ${RUNNER_TOKEN}
+      RUNNER_WORKDIR: /tmp/runner
+    volumes:
+      # 持久化 Runner 工作目录
+      - runner-workdir:/tmp/runner
+      # 宿主机 Docker socket，允许 Runner 操作宿主机 Docker
+      - /var/run/docker.sock:/var/run/docker.sock
+      # 挂载宿主机 docker-compose，确保 Runner 容器可以直接使用 docker-compose
+      - /usr/bin/docker-compose:/usr/local/bin/docker-compose:ro
+
+volumes:
+  runner-workdir:
