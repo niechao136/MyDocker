@@ -9,6 +9,10 @@ ENV RUNNER_NAME=my-runner
 ENV RUNNER_ORG_URL=https://github.com/nechao136
 ENV RUNNER_WORKDIR=/tmp/runner
 
-# 使用 bash -c 顺序执行注册 + 运行
-CMD ["bash", "-c", "./config.sh --url $RUNNER_ORG_URL --token $RUNNER_TOKEN --unattended && ./run.sh"]
+# 复制启动脚本到容器
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# 使用启动脚本
+CMD ["/entrypoint.sh"]
 
