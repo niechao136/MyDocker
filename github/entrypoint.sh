@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+cd /home/runner
+echo "Current directory: $(pwd)"
+
 # Runner 配置标识目录
 RUNNER_CONFIG_DIR="/tmp/runner/.runner"
 
