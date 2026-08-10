@@ -1,0 +1,39 @@
+{
+    "inbounds": [
+        {
+            "port": 10443,
+            "listen": "127.0.0.1",
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "47db9dac-0b95-428c-be1d-dab9de78f89c",
+                        "flow": "xtls-rprx-vision"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "reality",
+                "realitySettings": {
+                    "show": false,
+                    "dest": "swdist.apple.com:443",
+                    "xver": 0,
+                    "serverNames": [
+                        "swdist.apple.com"
+                    ],
+                    "privateKey": "4IoiEu255R8f34oZ0LuNK3qoQYPxVZDoUdwTSXY0Vlc",
+                    "shortIds": [
+                        "6ba7b810"
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom"
+        }
+    ]
+}
